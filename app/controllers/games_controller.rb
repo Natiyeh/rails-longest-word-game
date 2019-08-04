@@ -8,7 +8,7 @@ class GamesController < ApplicationController
     if params[:answer].chars.all? { |char| params[:letters].include? char.downcase }
       @response = "Good job! #{params[:answer].upcase} can be built out of #{params[:letters].split.join(", ")}."
     else
-      @response = ["test 2"]
+      @response = "Sorry, but #{params[:answer].upcase} can't be built out of #{params[:letters].split.join(", ")}."
     end
     # byebug
     # The form will be submitted (with POST) to the score action.
