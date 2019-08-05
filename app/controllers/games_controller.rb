@@ -5,7 +5,9 @@ class GamesController < ApplicationController
   end
 
   def score
-    if params[:answer].chars.all? { |char| params[:letters].include? char.downcase }
+    if params[:answer] == ''
+      @response = "sorry, but you must enter a word."
+    elsif params[:answer].chars.all? { |char| params[:letters].include? char.downcase }
       @response = "Good job! #{params[:answer].upcase} can be built out of #{params[:letters].split.join(", ")}."
     else
       @response = "Sorry, but #{params[:answer].upcase} can't be built out of #{params[:letters].split.join(", ")}."
