@@ -1,0 +1,14 @@
+<div class="row" style="padding-top:0%;">
+  <div class="col"></div>
+  <div class="col-md-4">
+    <h1 class="text-white">Please sign in</h1>
+    <%= form_tag users_path do %>
+    <%= text_field_tag :email, nil, placeholder: 'Input User ID' %>
+    <%= password_field_tag :password, nil, placeholder: 'Input Password' %>
+    <%= submit_tag 'Sign Up' %>
+    <% end %>
+
+
+  </div>
+  <div class="col"></div>
+</div>

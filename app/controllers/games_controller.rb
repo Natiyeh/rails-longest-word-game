@@ -2,6 +2,8 @@ require 'open-uri'
 require 'json'
 
 class GamesController < ApplicationController
+  # before_filter :set_total_score
+
   def new
     # display a new random grid and a form
     @letters = ('a'..'z').to_a.sample(10)
@@ -31,6 +33,17 @@ class GamesController < ApplicationController
     json = JSON.parse(response.read)
     return json['found']
   end
+
+  # def set_total_score
+  #   @total = session[:total]
+  #   @breadcrumbs = session[:breadcrumbs]
+  #   @total ||= Array.new
+  #   @total.push(request.url)
+  #   if @breadcrumbs.count > 3
+  #     @breadcrumbs.shift
+  #   end
+  #   session[:breadcrumbs] = @breadcrumbs
+  # end
 end
 
 # string.chars.any? { |char| ('a'..'z').include? char.downcase }
